@@ -435,8 +435,18 @@ on:
   pull_request:
     branches: [ main ]
 
-- name: Run tests
-  run: dotnet test
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4 # checkout repo
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4 # install dotnet
+      with:
+        dotnet-version: 8.x.x
+    - name: Build and test # run dotnet test
+      working-directory: ./
+      run: dotnet test
 ```
 
 This workflow will run the tests every time you push code to the `main` branch or create a pull request against it.

@@ -1,0 +1,19 @@
+name: Build and Test
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4 # checkout repo
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4 # install dotnet
+      with:
+        dotnet-version: 8.x.x
+    - name: Build and test # run dotnet test
+      working-directory: ./
+      run: dotnet test
