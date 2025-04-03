@@ -1,8 +1,16 @@
-module Tests
+module XUnitTests
 
-open System
 open Xunit
+open MyLibrary
 
-[<Fact>]
-let ``My test`` () =
-    Assert.True(true)
+module MathFunctionsTests =
+
+    [<Fact>]
+    let ``Adding 2 and 2 returns 4`` () =
+        let result = MathFunctions.add 2 2
+        Assert.Equal(4, result)
+
+    [<Fact>]
+    let ``Subtracting 2 from 4 returns 2`` () =
+        let result = MathFunctions.subtract 4 2
+        Assert.Equal(2, result)

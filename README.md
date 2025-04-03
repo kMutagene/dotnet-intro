@@ -402,9 +402,9 @@ module MathFunctionsTests =
         Assert.Equal(4, result)
 
     [<Fact>]
-    let ``Subtracting 2.1 from 4.1 returns 2.0`` () =
-        let result = MathFunctions.subtract 4.1 2.1
-        Assert.Equal(2.0, result)
+    let ``Subtracting 2 from 4 returns 2`` () =
+        let result = MathFunctions.subtract 4 2
+        Assert.Equal(2, result)
 ```
 
 ### Run tests
