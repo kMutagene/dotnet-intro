@@ -127,7 +127,11 @@ module StringUtils =
 
 There are no CLI commands to add a new source file to a project, it has to be done manually.
 
-First, create a new file in the project folder, e.g., `NewLibrary.fs`.
+First, create a new file in the project folder, e.g., `NewLibrary.fs`, containing an empty namespace:
+
+```fsharp
+namespace NewLibrary
+```
 
 Then, add the following code to the `MyLibrary.fsproj`:
 
