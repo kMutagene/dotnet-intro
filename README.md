@@ -326,7 +326,13 @@ dotnet pack ./src/MyConsoleApp/MyConsoleApp.fsproj -o ./nupkg
 You can test the tool locally by installing it from the package:
 
 ```sh
-dotnet tool install --global ./nupkg/MyConsoleApp.1.0.0.nupkg
+dotnet tool install -g --source .\nupkg MyConsoleApp
+
+```sh
+* `dotnet tool install` installs a .NET tool.
+* `-g` specifies that the tool should be installed globally.
+* `--source` specifies the source of the package. In this case, it is the local `nupkg` folder.
+* `MyConsoleApp` is the name of the tool.
 ```
 
 and then running it:
