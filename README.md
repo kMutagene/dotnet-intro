@@ -335,7 +335,6 @@ dotnet tool install -g --source .\nupkg MyConsoleApp
 * `--source` specifies the source of the package. In this case, it is the local `nupkg` folder.
 * `MyConsoleApp` is the name of the tool.
 
-
 and then running it:
 
 ```sh
