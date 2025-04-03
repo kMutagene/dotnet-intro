@@ -274,7 +274,7 @@ You can also define the entry point explicitly using the `main` function. This h
 ```fsharp
 [<EntryPoint>]
 let main argv =
-    printfn $"Hello from F#. You provided the followingarguments: {argv}" // access command-line arguments from argv
+    printfn $"""Hello from F#. You provided the following arguments: {argv |> String.concat ", "}""" // access command-line arguments from argv
     0 // return an integer exit code
 ```
 
@@ -283,26 +283,26 @@ let main argv =
 Run the application with:
 
 ```sh
-dotnet run --project MyConsoleApp
+dotnet run --project ./src/MyConsoleApp/MyConsoleApp.fsproj
 ```
 
 you can also build the project and run the executable directly:
 
 ```sh
-dotnet build --project MyConsoleApp
+dotnet build --project ./src/MyConsoleApp/MyConsoleApp.fsproj
 ./src/MyConsoleApp/bin/Debug/net8.0/MyConsoleApp.exe
 ```
 
 To pass command-line arguments to the application, use:
 
 ```sh
-dotnet run --project MyConsoleApp -- arg1 arg2 arg3
+dotnet run --project ./src/MyConsoleApp/MyConsoleApp.fsproj -- arg1 arg2 arg3
 ```
 
 or when running the executable directly:
 
 ```sh
-dotnet build --project MyConsoleApp
+dotnet build --project ./src/MyConsoleApp/MyConsoleApp.fsproj
 
 ./src/MyConsoleApp/bin/Debug/net8.0/MyConsoleApp.exe arg1 arg2 arg3
 ```
