@@ -58,6 +58,10 @@ dotnet new sln -n MySolution
 * `dotnet new sln` creates a new solution file.
 * `-n` specifies the name of the solution.
 
+[🔍 Commit for this chapter](https://github.com/kMutagene/dotnet-intro/commit/bb5cb2bc5dbdbf386cdc39f4749d6b4920425659)
+
+[🔝 Back to top](#library)
+
 ### Create the library project
 
 Create an F# library project within the solution folder.
@@ -83,6 +87,10 @@ dotnet sln ./MySolution.sln add ./src/MyLibrary/MyLibrary.fsproj
 * `dotnet sln add` adds the project to a solution.
 * `./MySolution` is the path to the solution file.
 * `./src/MyLibrary/MyLibrary.fsproj` is the path to the project file generated in the previous step.
+
+[🔍 Commit for this chapter](https://github.com/kMutagene/dotnet-intro/commit/4d9e427dcd0a75de7f0db5d08b2b2cb942f69bb4)
+
+[🔝 Back to top](#library)
 
 ### Build the project
 
@@ -123,6 +131,10 @@ module StringUtils =
     let toLower (s: string) = s.ToLower()
 ```
 
+[🔍 Commit for this chapter](https://github.com/kMutagene/dotnet-intro/commit/2e17d0b967b041c11c45a5ae580e468220cfd8f5)
+
+[🔝 Back to top](#library)
+
 ### Add a new source file
 
 There are no CLI commands to add a new source file to a project, it has to be done manually.
@@ -142,6 +154,10 @@ Then, add the following code to the `MyLibrary.fsproj`:
 This tells the project to include the new file in the compilation process.
 
 Most IDEs have a `Add file` functionality that will do this for you.
+
+[🔍 Commit for this chapter](https://github.com/kMutagene/dotnet-intro/commit/de769fb578a313d60f74d2bdefa2e206b45fb877)
+
+[🔝 Back to top](#library)
 
 ### Use your modules
 
@@ -164,6 +180,10 @@ module Results =
 
     let result1 = MyLibrary.MathFunctions.add 1 2
 ```
+
+[🔍 Commit for this chapter](https://github.com/kMutagene/dotnet-intro/commit/0572ff0c35af4bd9aa9887eea634db8c3e55d0bd)
+
+[🔝 Back to top](#library)
 
 ### Pack the project
 
@@ -230,6 +250,10 @@ Then, add it to the solution:
 dotnet sln ./MySolution.sln add ./src/MyConsoleApp/MyConsoleApp.fsproj
 ```
 
+[🔍 Commit for this chapter](https://github.com/kMutagene/dotnet-intro/commit/12fece0c552e08730b8560040ac3b7b4b88785b5)
+
+[🔝 Back to top](#console-application)
+
 ### Reference the library project
 
 To use the library in the console application, add a project reference:
@@ -257,6 +281,10 @@ dotnet add ./src/MyConsoleApp/MyConsoleApp.fsproj package MyLibrary --version 1.
 * `dotnet add package` adds a NuGet package reference to the console application project.
 * `MyLibrary` is the name of the package.
 
+[🔍 Commit for this chapter](https://github.com/kMutagene/dotnet-intro/commit/118ac02dce6ba5a96394b72a2fe76185431e3ec3)
+
+[🔝 Back to top](#console-application)
+
 ### Write some application code
 
 Applications must end with the main entry point, meaning the last file in the project must contain a function that is executed when the application is run.
@@ -277,6 +305,10 @@ let main argv =
     printfn $"""Hello from F#. You provided the following arguments: {argv |> String.concat ", "}""" // access command-line arguments from argv
     0 // return an integer exit code
 ```
+
+[🔍 Commit for this chapter](https://github.com/kMutagene/dotnet-intro/commit/0c02ea24e60725a4fa4ae27a65b5240a95bde62f)
+
+[🔝 Back to top](#console-application)
 
 ### Run the console project
 
@@ -347,6 +379,10 @@ If this nuget package is published to NuGet, you will be able to install it via 
 dotnet tool install --global MyConsoleApp --version 1.0.0
 ```
 
+[🔍 Commit for this chapter](https://github.com/kMutagene/dotnet-intro/commit/742dfc28d524dab05c0c07299d7ad4d1685c9a4d)
+
+[🔝 Back to top](#console-application)
+
 ## Testing
 
 Tests are essential for ensuring the correctness and reliability of your code.
@@ -379,6 +415,12 @@ Reference the project under test:
 ```sh
 dotnet add ./tests/XUnitTests/XUnitTests.fsproj reference ./src/MyLibrary/MyLibrary.fsproj
 ```
+
+[🔍 Commit for this chapter (xUnit)](https://github.com/kMutagene/dotnet-intro/commit/e9edf3b41e6db5d5824533a65f5ddece52db2d5e)
+
+[🔍 Commit for this chapter (Expecto)](https://github.com/kMutagene/dotnet-intro/commit/8aa27305fec4b6698812ef3804828a1b627a4d9c)
+
+[🔝 Back to top](#testing)
 
 ### Create a unit test
 
@@ -421,6 +463,12 @@ or run tests in a specific project using:
 dotnet test ./tests/XUnitTests/XUnitTests.fsproj
 ```
 
+[🔍 Commit for this chapter (xUnit)](https://github.com/kMutagene/dotnet-intro/commit/079c78c67be0a887b6a276a76d1876c940ad1d82)
+
+[🔍 Commit for this chapter (Expecto)](https://github.com/kMutagene/dotnet-intro/commit/ad7e8b5dd303eac2ef2dbaf79f22ac490191937a)
+
+[🔝 Back to top](#testing)
+
 ### Integrate with CI/CD
 
 You can set up GitHub to run tests automatically when you push code to the repository or create a pull request.
@@ -450,3 +498,7 @@ jobs:
 ```
 
 This workflow will run the tests every time you push code to the `main` branch or create a pull request against it.
+
+[🔍 Commit for this chapter](https://github.com/kMutagene/dotnet-intro/commit/bbe17295a0a01ad71ec0f2fb530e007134910ae6)
+
+[🔝 Back to top](#testing)
